@@ -1,4 +1,4 @@
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 import ProductListing from '@/components/ProductListing/ProductListing';
 import styles from './page.module.css';
 
@@ -18,7 +18,7 @@ interface Product {
 async function getProducts(): Promise<Product[]> {
   try {
     const res = await fetch('https://fakestoreapi.com/products', {
-      cache: 'no-store', 
+      next: { revalidate: 60 },
     });
 
     if (!res.ok) {
