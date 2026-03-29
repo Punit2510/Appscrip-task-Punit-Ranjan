@@ -28,14 +28,14 @@ export default function Footer() {
             <p className={styles.text}>customercare@mettamuse.com</p>
             <h3 className={styles.heading}>CURRENCY</h3>
             <div className={styles.currency}>
-              <span className={styles.flag}>🇺🇸</span> <span className={styles.usd}>USD</span>
+              <img src="/us.png" alt="US Flag" width={36} height={36} className={styles.flagImg} />
+              <span className={styles.currencyDiamond}>&#9670;</span>
+              <span className={styles.usd}>USD</span>
             </div>
             <p className={styles.tinyText}>Transactions will be completed in Euros and a currency reference is available on hover.</p>
           </div>
         </div>
-        
         <div className={styles.divider} />
-        
         <div className={styles.bottomSection}>
           <div className={styles.linksColumn}>
             <button 
@@ -54,9 +54,8 @@ export default function Footer() {
               <li>EU Compliances Docs</li>
             </ul>
           </div>
-          
           <div className={styles.linksColumn}>
-             <button 
+            <button 
               className={styles.mobileContextBtn} 
               onClick={() => toggleSection('links')}
             >
@@ -73,37 +72,47 @@ export default function Footer() {
               <li>Terms & Conditions</li>
             </ul>
           </div>
-          
           <div className={styles.socialColumn}>
-             <button 
+            <button 
               className={styles.mobileContextBtn} 
               onClick={() => toggleSection('social')}
             >
               <h3 className={styles.heading}>FOLLOW US</h3>
               <span className={styles.chevron}>{openSection === 'social' ? '▲' : '▼'}</span>
             </button>
-            
             <div className={`${styles.socialContent} ${openSection === 'social' ? styles.open : ''}`}>
               <div className={styles.socialIcons}>
                 <div className={styles.iconWrapper}>
-                  <span>IG</span>
+                  <img src="/ig.png" alt="Instagram" width={24} height={24} className={styles.socialImg} />
                 </div>
                 <div className={styles.iconWrapper}>
-                  <span>IN</span>
+                  <img src="/in.png" alt="LinkedIn" width={24} height={24} className={styles.socialImg} />
                 </div>
               </div>
               <h3 className={styles.headingOuter}>mettā muse ACCEPTS</h3>
               <div className={styles.paymentIcons}>
-                <div className={styles.payIcon}>GPay</div>
-                <div className={styles.payIcon}>Master</div>
-                <div className={styles.payIcon}>Amex</div>
-                <div className={styles.payIcon}>Apple</div>
-                <div className={styles.payIcon}>Pay</div>
+                <div className={`${styles.payIcon} ${styles.payIconWhite}`}>
+                  <img src="/gpay.png" alt="Google Pay" height={28} width={48} className={styles.payImg} />
+                </div>
+                <div className={`${styles.payIcon} ${styles.payIconWhite}`}>
+                  <img src="/mastercard.png" alt="Mastercard" height={28} width={48} className={styles.payImg} />
+                </div>
+                <div className={`${styles.payIcon} ${styles.payIconWhite}`}>
+                  <img src="/paypal.png" alt="PayPal" height={28} width={48} className={styles.payImg} />
+                </div>
+                <div className={`${styles.payIcon} ${styles.payIconWhite} ${styles.payIconBlue}`}> 
+                  <img src="/amex.png" alt="Amex" height={28} width={48} className={styles.payImg} />
+                </div>
+                <div className={`${styles.payIcon} ${styles.payIconWhite}`}>
+                  <img src="/applepay.png" alt="Apple Pay" height={28} width={48} className={styles.payImg} />
+                </div>
+                <div className={`${styles.payIcon} ${styles.payIconWhite} ${styles.payIconPurple}`}> 
+                  <img src="/pay.png" alt="Pay" height={28} width={48} className={styles.payImg} />
+                </div>
               </div>
             </div>
           </div>
         </div>
-        
         <div className={styles.copyright}>
           Copyright © 2026 mettamuse. All rights reserved.
         </div>

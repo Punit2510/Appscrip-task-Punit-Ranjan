@@ -1,3 +1,35 @@
+/* Added for moved inline styles from Footer.tsx */
+.flagImg {
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.currencyDiamond {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 0.5rem;
+  vertical-align: middle;
+}
+
+.socialImg {
+  display: block;
+}
+
+.payImg {
+  vertical-align: middle;
+}
+
+.payIconWhite {
+  background: #fff;
+}
+
+.payIconBlue {
+  border-color: #2e6df6;
+}
+
+.payIconPurple {
+  border-color: #7b3ff2;
+}
 .footer {
   background-color: #000000;
   color: #ffffff;
@@ -23,25 +55,23 @@
   min-width: 300px;
 }
 
-.contact {
-  flex: 1;
-  min-width: 300px;
+
+.currency {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
-.heading {
-  font-size: 1.25rem;
+.usd {
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
   letter-spacing: 1px;
+  color: #fff;
 }
 
-.headingOuter {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  letter-spacing: 1px;
-  margin-top: 2rem;
-}
 
 .text {
   margin-bottom: 1.5rem;
@@ -153,42 +183,63 @@
   display: block;
 }
 
+
 .socialIcons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .iconWrapper {
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--background);
+  width: 56px;
+  height: 56px;
+  border: 3px solid #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  cursor: pointer;
+  background: transparent;
   transition: transform 0.2s;
+  box-sizing: border-box;
+}
+
+.iconWrapper img {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .iconWrapper:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
+  border-color: #aaa;
 }
+
 
 .paymentIcons {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .payIcon {
   padding: 4px 8px;
-  border: 1px solid var(--background);
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  border: 1.5px solid #fff;
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  min-height: 28px;
+  box-sizing: border-box;
+}
+
+.payIcon img {
+  width: 48px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
 }
 
 .copyright {

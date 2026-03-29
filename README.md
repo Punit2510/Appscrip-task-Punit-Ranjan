@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Appscrip Task — Daksh Arya
 
-## Getting Started
+A high-fidelity, responsive **Product Listing Page (PLP)** built as part of the Appscrip frontend assignment.
 
-First, run the development server:
+## Live Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+> Deployment link here (Vercel / Netlify)
+
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: CSS Modules (zero external UI libraries)
+- **Data**: [FakeStore API](https://fakestoreapi.com/products) fetched server-side
+- **Rendering**: Server-Side Rendering (SSR) via Next.js async Server Components
+
+## Features
+
+- **SSR**: Product data is fetched on the server before the page is sent to the browser, improving SEO and first contentful paint
+- **Responsive**: Works on mobile (320px+), tablet (768px+), and desktop (1024px+)
+- **Filter Sidebar**: Accordion-based category filters with checkbox selections and mobile full-screen drawer
+- **Sort**: Dropdown to sort products by recommended, price high-to-low, or price low-to-high
+- **Wishlist**: Per-card heart toggle using local React state
+- **SEO**: Semantic H1/H2 tags, OpenGraph metadata, Twitter Cards, and JSON-LD schema (`ItemList` + `Product`)
+- **Error boundary**: `error.tsx` catches API failures gracefully
+- **Loading state**: `loading.tsx` streams a spinner while the server fetches data
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with metadata and OpenGraph SEO
+│   ├── page.tsx            # SSR entry point — fetches products, injects JSON-LD
+│   ├── loading.tsx         # Suspense loading boundary
+│   ├── error.tsx           # Error boundary for API failures
+│   └── globals.css         # Design tokens and CSS reset
+│
+└── components/
+    ├── Header/             # Top strip, logo, icon nav, mobile hamburger drawer
+    ├── Footer/             # Newsletter, links, payment icons — mobile accordion
+    ├── ProductListing/     # Hero section, toolbar (filter toggle + sort), grid
+    ├── SidebarFilter/      # Accordion filter groups with checkbox options
+    └── ProductCard/        # Product image, title, wishlist heart toggle
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## SEO Implementation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Element | Implementation |
+|---|---|
+| Page Title | Dynamic via `metadata` in `layout.tsx` |
+| Meta Description | Set in `metadata` export |
+| H1 | "DISCOVER OUR PRODUCTS" in `ProductListing` hero |
+| H2/H3 | Footer section headings |
+| Schema | JSON-LD `ItemList` + `Product` injected in `page.tsx` |
+| Image Alt Text | Product title from API used as `alt` attribute |
+| OpenGraph | `og:title`, `og:description`, `og:url`, `og:type` |
+| Twitter Card | `summary_large_image` with creator handle |
+| Robots | `index: true, follow: true` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Running Locally
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Open [http://localhost:3000](http://localhost:3000)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Evaluation Checklist
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [x] HTML & CSS only (no Tailwind, no Bootstrap)
+- [x] React.js with Next.js framework
+- [x] Server-Side Rendering (SSR)
+- [x] Responsive — mobile & tablet
+- [x] Code structure and naming conventions
+- [x] Minimum pre-built JS packages
+- [x] SEO — title, description, H1/H2, schema, alt text
+- [x] FakeStore API integration
+- [x] Hosted on public service
+- [x] Public GitHub repository: `Appscrip-task-Daksh-Arya`
