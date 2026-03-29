@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import ProductListing from '@/components/ProductListing/ProductListing';
 import styles from './page.module.css';
 
@@ -15,15 +16,21 @@ interface Product {
 }
 
 async function getProducts(): Promise<Product[]> {
-  const res = await fetch('https://fakestoreapi.com/products', {
-    next: { revalidate: 3600 },
-  });
+  try {
+    const res = await fetch('https://fakestoreapi.com/products', {
+      cache: 'no-store', 
+    });
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch products');
+    if (!res.ok) {
+      console.error('API Error:', res.status);
+      return []; 
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error('Fetch failed:', error);
+    return []; 
   }
-
-  return res.json();
 }
 
 export default async function Home() {
